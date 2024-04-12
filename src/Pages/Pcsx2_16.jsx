@@ -30,7 +30,7 @@ export default function Pcsx2_16() {
 
 
     function CreateFile() {
-        const OPSI = new Blob([valueHasil], { type: "text/plain;charset=utf-8" });
+        const OPSI = new Blob([valueHasil || "--- OUTPUT KOSONG --- \nTIDAK ADA RAW CODE UNTUK DI CONVERT \nSILAHKAN MASUKAN RAW CODE DENGAN BENAR PADA INPUT"], { type: "text/plain;charset=utf-8" });
         FileSaver.saveAs(OPSI, `${crc}.pnach`);
     }
 
@@ -38,7 +38,7 @@ export default function Pcsx2_16() {
     function convert() {
         const get = valuesumber.trim().split("\n");
         const regex = /([A-F0-9]+) ([A-F0-9]+)/;
-
+        console.log(get);
         //mapping
         const mapping = get.map(x => {
             if (x.match(regex)) {
@@ -129,7 +129,8 @@ export default function Pcsx2_16() {
                                     if (text == "") {
                                         textareaInput.current.placeholder = "Clipboard Masih Kosong"
                                     } else {
-                                        textareaInput.current.value = text
+                                        textareaInput.current.value += text;
+                                        setvaluesumber(textareaInput.current.value,)
                                     }
                                 })
                                 .catch(() => { alert('browser tidak support'); })
@@ -143,7 +144,7 @@ export default function Pcsx2_16() {
                         }
                         click={() => {
                             textareaInput.current.value = "";
-                            textareaInput.current.placeholder = "Masukan Raw Code Kesini";
+                            textareaInput.current.placeholder = "Masukan Raw Code Kesini \nexample:\n20123456 FFFFFFFF \n20654321 00000000";
                         }}
                     >Hapus</ListContextMenu>
                 </ContextMenu >
@@ -155,7 +156,7 @@ export default function Pcsx2_16() {
                 <textarea className=' placeholder:tracking-widest outline-none shadow-lg shadow-emerald-600 focus:shadow-blue-600 duration-200 m-3 mt-10 w-[80%] max-[520px]:w-[90%] bg-gray-600 rounded p-2 text-white uppercase h-auto'
                     onChange={(e) => { setvaluesumber(e.target.value); e.target.style.height = e.target.scrollHeight + 'px'; setgetScroll(e.target.scrollHeight + 'px') }}
                     onPaste={(e) => { setvaluesumber(e.target.value); e.target.style.height = e.target.scrollHeight + 'px'; setgetScroll(e.target.scrollHeight + 'px') }}
-                    placeholder='Masukan Raw Code Kesini'
+                    placeholder={"Masukan Raw Code Kesini \nexample:\n20123456 FFFFFFFF \n20654321 00000000"}
                     rows={8}
                     ref={textareaInput}
                     onContextMenu={contextMenu}
