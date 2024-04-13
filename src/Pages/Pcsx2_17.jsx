@@ -76,7 +76,7 @@ export default function Pcsx2_17() {
 
 
     useEffect(() => {
-        document.title = "Cheat Engine To Pcsx2 v1.6";
+        document.title = "Cheat Engine To Pcsx2 v1.7";
         document.body.style.backgroundColor = "rgb(36,36,36)";
         document.body.style.overflowX = "hidden";
     }, []);
