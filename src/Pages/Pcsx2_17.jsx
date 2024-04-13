@@ -36,8 +36,8 @@ export default function Pcsx2_17() {
 
 
     function convert() {
-        const get = valuesumber.trim().split("\n");
-        const regex = /([A-F0-9]+) ([A-F0-9]+)/;
+        const get = valuesumber.toUpperCase().trim().split("\n");
+        const regex = /^([A-F0-9]{12}) ([A-F0-9]{8})$/;
 
         // map
         const mapping = get.map(x => {
@@ -46,7 +46,11 @@ export default function Pcsx2_17() {
                 return "patch=1,EE," + x.match(regex)[1].replace(/([A-F0-9]{5})/, "2") + type + x.match(regex)[2];
             }
             else {
-                return "INPUT SALAH"
+                if (String(get) === "") {
+                    return "// INPUT MASIH KOSONG"
+                } else {
+                    return "// INPUT SALAH";
+                }
             }
         })
         setvalueHasil(mapping.join("\n"));
@@ -182,38 +186,45 @@ export default function Pcsx2_17() {
                         <span className='p-2 rounded ml-[-4px] cursor-pointer bg-emerald-600 hover:bg-emerald-800 w-28 max-[520px]:w-20 text-center'
                             onClick={() => {
                                 settype(",extended,");
-                                // setupdateEffect(convert());
-                                const get = valuesumber.trim().split("\n");
-                                const regex = /([A-F0-9]+) ([A-F0-9]+)/;
+                                const get = valuesumber.toUpperCase().trim().split("\n");
+                                const regex = /^([A-F0-9]{12}) ([A-F0-9]{8})$/;
 
-                                //mapping
+                                // map
                                 const mapping = get.map(x => {
                                     if (x.match(regex)) {
-                                        return "patch=1,EE," + x.match(regex)[1].replace(/([A-F0-9]{5})/, "2") + ",extended," + x.match(regex)[2];
+                                        TypeButton.current.style.display = "flex";
+                                        return "patch=1,EE," + x.match(regex)[1].replace(/([A-F0-9]{5})/, "2") + type + x.match(regex)[2];
                                     }
                                     else {
-                                        return "INPUT SALAH"
+                                        if (String(get) === "") {
+                                            return "// INPUT MASIH KOSONG"
+                                        } else {
+                                            return "// INPUT SALAH";
+                                        }
                                     }
                                 })
                                 setvalueHasil(mapping.join("\n"));
                                 setscrollTextarea(getScroll);
-
                             }}
                         >extended</span>
                         <span className='p-2 rounded ml-[-4px] cursor-pointer bg-emerald-600 hover:bg-emerald-800 w-28 max-[520px]:w-20 text-center'
                             onClick={() => {
                                 settype(",word,");
-                                // setupdateEffect(convert());
-                                const get = valuesumber.trim().split("\n");
-                                const regex = /([A-F0-9]+) ([A-F0-9]+)/;
+                                const get = valuesumber.toUpperCase().trim().split("\n");
+                                const regex = /^([A-F0-9]{12}) ([A-F0-9]{8})$/;
 
-                                //mapping
+                                // map
                                 const mapping = get.map(x => {
                                     if (x.match(regex)) {
-                                        return "patch=1,EE," + x.match(regex)[1].replace(/([A-F0-9]{5})/, "2") + ",word," + x.match(regex)[2];
+                                        TypeButton.current.style.display = "flex";
+                                        return "patch=1,EE," + x.match(regex)[1].replace(/([A-F0-9]{5})/, "2") + type + x.match(regex)[2];
                                     }
                                     else {
-                                        return "INPUT SALAH"
+                                        if (String(get) === "") {
+                                            return "// INPUT MASIH KOSONG"
+                                        } else {
+                                            return "// INPUT SALAH";
+                                        }
                                     }
                                 })
                                 setvalueHasil(mapping.join("\n"));

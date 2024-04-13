@@ -12,7 +12,7 @@ export default function Home() {
                 <DateCreated />
                 <h1 className='text-center mt-5 text-2xl font-semibold'>PCSX2 Cheat Converter</h1>
                 <p className='text-center'>selamat datang di web gweh</p>
-                <div className='w-[75%] max-md:w-[85%] max-sm:w-[95%] bg-emerald-800 mr-auto ml-auto mt-14 p-2 rounded shadow-xl skew-x-1 shadow-green-500 relative'>
+                <div className='w-[75%] max-md:w-[85%] max-sm:w-[95%] bg-emerald-800 mr-auto ml-auto mt-14 p-2 rounded shadow-xl  shadow-green-500 relative'>
                     <span className='absolute right-[-5px] top-[-10px] scale-[2] select-none'>⭐</span>
                     <span className='absolute left-[-10px] top-[-10px] scale-[1.5] select-none'>🎗️</span>
                     <h1 className='underline underline-offset-2 decoration-green-200 text-lg font-semibold mb-1'>Penjelasan Singkat Tentang Web ini!</h1>

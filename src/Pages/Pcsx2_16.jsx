@@ -36,9 +36,9 @@ export default function Pcsx2_16() {
 
 
     function convert() {
-        const get = valuesumber.trim().split("\n");
-        const regex = /([A-F0-9]+) ([A-F0-9]+)/;
-        console.log(get);
+        const get = valuesumber.toUpperCase().trim().split("\n");
+        const regex = /^([A-F0-9]{8}) ([A-F0-9]{8})$/;
+
         //mapping
         const mapping = get.map(x => {
             if (x.match(regex)) {
@@ -46,7 +46,11 @@ export default function Pcsx2_16() {
                 return "patch=1,EE," + x.match(regex)[1] + type + x.match(regex)[2];
             }
             else {
-                return "INPUT SALAH"
+                if (String(get) === "") {
+                    return "// INPUT MASIH KOSONG"
+                } else {
+                    return "// INPUT SALAH";
+                }
             }
         })
         setvalueHasil(mapping.join("\n"));
@@ -182,8 +186,8 @@ export default function Pcsx2_16() {
                             onClick={() => {
                                 settype(",extended,");
                                 // setupdateEffect(convert());
-                                const get = valuesumber.trim().split("\n");
-                                const regex = /([A-F0-9]+) ([A-F0-9]+)/;
+                                const get = valuesumber.toUpperCase().trim().split("\n");
+                                const regex = /^([A-F0-9]{8}) ([A-F0-9]{8})$/;
 
                                 //mapping
                                 const mapping = get.map(x => {
@@ -191,7 +195,11 @@ export default function Pcsx2_16() {
                                         return "patch=1,EE," + x.match(regex)[1] + ",extended," + x.match(regex)[2];
                                     }
                                     else {
-                                        return "INPUT SALAH"
+                                        if (String(get) === "") {
+                                            return "// INPUT MASIH KOSONG"
+                                        } else {
+                                            return "// INPUT SALAH";
+                                        }
                                     }
                                 })
                                 setvalueHasil(mapping.join("\n"));
@@ -203,8 +211,8 @@ export default function Pcsx2_16() {
                             onClick={() => {
                                 settype(",word,");
                                 // setupdateEffect(convert());
-                                const get = valuesumber.trim().split("\n");
-                                const regex = /([A-F0-9]+) ([A-F0-9]+)/;
+                                const get = valuesumber.toUpperCase().trim().split("\n");
+                                const regex = /^([A-F0-9]{8}) ([A-F0-9]{8})$/;
 
                                 //mapping
                                 const mapping = get.map(x => {
@@ -212,7 +220,11 @@ export default function Pcsx2_16() {
                                         return "patch=1,EE," + x.match(regex)[1] + ",word," + x.match(regex)[2];
                                     }
                                     else {
-                                        return "INPUT SALAH"
+                                        if (String(get) === "") {
+                                            return "// INPUT MASIH KOSONG"
+                                        } else {
+                                            return "// INPUT SALAH";
+                                        }
                                     }
                                 })
                                 setvalueHasil(mapping.join("\n"));
