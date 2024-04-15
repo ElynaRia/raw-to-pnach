@@ -5,3 +5,7 @@
 br {
     user-select: none;
 }
+
+body {
+    overflow-x: hidden;
+}

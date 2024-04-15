@@ -48,11 +48,11 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap;
+    /* white-space: nowrap; */
     font: var(--tooltip-font-size) var(--tooltip-font-family);
     color: var(--tootip-text-color);
     background: var(--tooltip-bg);
-    padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+    padding: 4px 4px;
     border-radius: var(--toolptip-border-radius);
     pointer-events: none;
     transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
