@@ -8,7 +8,7 @@ export default function Home() {
     }, []);
     return (
         <>
-            <section className='text-white'>
+            <section className='text-white overflow-hidden w-[98%] mr-auto ml-auto'>
                 <DateCreated />
                 <h1 className='text-center mt-5 text-2xl font-semibold'>PCSX2 Cheat Converter</h1>
                 <p className='text-center'>selamat datang di web gweh</p>
@@ -21,16 +21,16 @@ export default function Home() {
                     <p>dengan web ini akan berubah menjadi :</p>
                     <span className='font-semibold inline-block mb-5' style={{ fontStyle: "oblique" }}>patch=1,EE,20123456,extended,FFFFFFFF</span>
                     <p>jika menggunakan syntax :</p>
-                    <div className='flex gap-2'>
+                    <div className='grid mb-5'>
                         <span className='font-semibold tracking-wider'>2xxxxxxx xxxxxxxx :</span>
                         <span>gunakan rute sebelah kiri dibawah ini</span>
                     </div>
-                    <div className='flex gap-2'>
+                    <div className='grid'>
                         <span className='font-semibold tracking-wider'>7FFxxxxxxxxx xxxxxxxx :</span>
                         <span>gunakan rute sebelah kanan dibawah ini</span>
                     </div>
                 </div>
-                <div className='grid justify-center mt-10'>
+                <div className='grid justify-center mt-10 w-[95%] mr-auto ml-auto'>
                     <span className='inline-block w-full text-center mb-2 border-b-2 text-xl'>RUTE :</span>
                     <div className='flex gap-5 justify-between'>
                         <Link className="bg-emerald-950 text-emerald-400 border border-emerald-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group" to={'/pcsx2-stable'}>
